@@ -1,0 +1,5 @@
+[tool.rye]
+virtual = true
+dev-dependencies = [
+    "tensorflow>=2.16.2",
+]
