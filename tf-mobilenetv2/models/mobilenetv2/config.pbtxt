@@ -1,0 +1,17 @@
+platform: "tensorflow_savedmodel"
+max_batch_size: 1
+
+input [
+  {
+    name: "keras_tensor"
+    data_type: TYPE_FP32
+    format: FORMAT_NCHW
+    dims: [ 224, 224, 3 ]
+  }
+]
+
+instance_group [ { count: 1 kind: KIND_CPU } ]
+
+parameters { key: "TF_NUM_INTRA_THREADS" value: { string_value: "1" } }
+parameters { key: "TF_NUM_INTER_THREADS" value: { string_value: "1" } }
+parameters { key: "TF_USE_PER_SESSION_THREADS" value: { string_value: "True" } }
